@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "module": "CommonJS",
+    "outDir": "dist",
+    // "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+  },
+  "exclude": [
+    "node_modules/**",
+    "package.json",
+    "src/zlib.ts",
+    "dist/**"
+  ]
+}
