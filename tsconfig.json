@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "baseUrl": "./",
-    "rootDir": "./src",
+    "target": "ESNext",
     "module": "CommonJS",
+    "baseUrl": ".",
     "outDir": "dist",
-    // "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "moduleResolution": "node",
     "esModuleInterop": true,

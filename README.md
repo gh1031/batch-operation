@@ -4,7 +4,7 @@
   * 批量删除文件夹
   * 批量新增文件夹
   * 批量压缩文件夹
-  * 批量执行
+  * 批量执行shell
 
 ## 批量删除或添加文件夹
 > 删除你指定目录下所有文件夹的第一级指定子文件夹
@@ -31,9 +31,9 @@
 执行命令
 
 ```bash
-bo rm a [b...] -w /path/to/work
+bo rmdir a [b...] [-aw] /path/to/work
 # or
-bo mkdir e [b...] --work-dir /path/to/work
+bo mkdir e [b...]  [-aw] /path/to/work
 ```
 
 结果
@@ -88,9 +88,7 @@ bo mkdir e [b...] --work-dir /path/to/work
 批量执行命令
 
 ```bash
-bo exec 'yarn init -y' -w /Users/path/to/work
-bo exec 'yarn init -y' --work-dir /Users/path/to/work
-bo exec ls --work-dir /Users/path/to/work
+bo exec|ex 'yarn init -y' [-aw] /path/to/work
 ```
 
 结果
@@ -135,7 +133,7 @@ bo exec ls --work-dir /Users/path/to/work
 ```
 
 ```bash
-bo compress -w /Users/path/to/work
+bo compress -w /path/to/work
 ```
 
 结果
@@ -153,7 +151,7 @@ bo compress -w /Users/path/to/work
     /a
     /b
     /c
-  a.tar
-  b.tar
-  c.tar
+  a.tar.gz
+  b.tar.gz
+  c.tar.gz
 ```

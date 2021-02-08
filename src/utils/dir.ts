@@ -1,18 +1,20 @@
-import fs from 'fs-extra';
+import fs from 'fs';
 import path from 'path';
-import { throwError, isHiddenFile } from '.';
+import { throwError } from '.';
+import logger from './logger';
 
 /**
  * @description get sub directory of current work directory 
  * @param cwd a path
  */
-function readDir(cwd: fs.PathLike): string[] {
+function readDir(cwd: fs.PathLike = ''): string[] {
   try {
     if (fs.existsSync(cwd)) {
       return fs.readdirSync(cwd);
     }
-  } catch (error) {
-    throwError(error);
+  } catch (exception) {
+    logger.error(`[read dir]: ${exception}`);
+    return [];
   }
 }
 
@@ -50,7 +52,7 @@ export function getDirsAndFiles(cwd: fs.PathLike, includeHiddenFile: boolean = t
  * 
  * @param target get the absoulte path of work directory
  */
-export function getAbsoulteWorkDir(target: string) {
+export function getAbsoultePath(target: string) {
   if (!target) {
     throwError(`workDir is not provide!`);
   }
@@ -58,4 +60,12 @@ export function getAbsoulteWorkDir(target: string) {
     return target;
   }
   return path.resolve(process.cwd(), target);
+}
+
+/**
+ * 
+ * @param path check the file is hiddened
+ */
+export const isHiddenFile = (path: string = ''): boolean => {
+  return path.startsWith('.')
 }

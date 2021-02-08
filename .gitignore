@@ -2,6 +2,9 @@ node_modules/
 dist/
 yarn-error.*
 
-work
 cjs
 es
+
+tsconfig.tsbuildinfo
+
+**/*.tgz
